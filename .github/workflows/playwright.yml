@@ -24,15 +24,15 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v6
+      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
     
     - name: Setup Node.js
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
       with:
         node-version: 'lts/*'
     
     - name: Cache dependencies
-      uses: actions/cache@v5
+      uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
       with:
         path: ~/.npm
         key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
@@ -48,7 +48,7 @@ jobs:
         CI: true
      
     - name: Upload test results
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
       if: failure()
       with:
         name: playwright-report
@@ -56,7 +56,7 @@ jobs:
         retention-days: 14
     
     - name: Upload test traces
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
       if: failure()
       with:
         name: playwright-traces
